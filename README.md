@@ -1,6 +1,6 @@
 # InClass
 
-![picture of myself](SpookyKelly.jpg)
+![picture of myself](https://raw.github.com/kgreen2022/InClass/main/SpookyKelly.JPG)
  
 # My Computer Science Experience
 Unfortunately, my computer experience up to this point has been pretty slim. I'll bet slimmer than the rest of the students in the class. Really, my only programming experience has been through the computer science course I've taken here at New Paltz (CS1,2,+3). I'm not even a CS major, just a CS minor. I understand that this means that I am going to have a harder time this semester (I'm also taking Data Science.) , but I won't let this discourage me from working hard. I see my lack of experience as a challenge. 
