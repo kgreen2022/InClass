@@ -16,13 +16,13 @@
 <body>
     
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation" >
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
             <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
           </a>
       
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" :class="{'is-active': isMenuOpen}" @click="isMenuOpen = !isMenuOpen">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -85,25 +85,34 @@
             <h2 class="subtitle">Learning about it in the best class</h2>
         </div>
         </div>
-        <div class="notification is-danger is-light">
-            <button class="delete"></button>
-            Deployed 
-          </div>
+
+        <div class="notification is-success is-light" v-if="isNotificationVisible">
+            <button class="delete" @click="hideNotification"></button>
+            {{ message }}
+        </div>
+
         <div></div>
         <div></div>
     </div>
-    <script>
 
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $(function(){
-            const s = $("h1");
-            s.slideUp()
-        })
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
+        createApp({
+            data() {
+                return {
+                message: 'Hello Vue!'
+                isNotificationVisible: true, 
+                isMenuOpen: false,
+                }
+            },
+            methods: {
+                hideNotification(){
+                    this.isNotificationVisible = false;
+                }
+            }
+        }).mount('body');
 
-        //alert('hello');
     </script>
 </body>
 </html>
