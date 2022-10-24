@@ -7,12 +7,12 @@
         <a class="button is-primary">
             <strong>Sign up</strong>
         </a>
-        <a class="button is-light" @click="login('Green', 'Kelly')">
+        <a class="button is-light" @click="login('Kelly', 'Green')">
             Log in
         </a>
     </div>
     <div v-else>
-        Welcome {{session.user.firstname}} {{session.user.lastname}}
+        Welcome {{session.user.firstName}} {{session.user.lastName}}
         (<a @click="logout()">
             Log out 
         </a>)
