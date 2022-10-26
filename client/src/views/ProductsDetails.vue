@@ -1,31 +1,38 @@
 <script setup lang="ts">
-    import { reactive } from "vue";
-    import { getProducts } from "../stores/products";
-
-    const products = reactive(getProducts());
+    import { ref } from "vue";
+    import { useRoute } from "vue-router";
+    import { getProduct } from "../stores/products";
+    const route = useRoute();
+    
+    const product = ref(getProduct(+route.params.id));
 </script>
+
 <template>
-    <div>
-        <div class="product" v-for="product in products" :key="product.id">
-            <img :src="product.thumbnail" :all="product.title" />
+    <div v-if="product" class="section">
+        <div class="product-image">
+            <img :src="product.thumbnail" :alt="product.title" />
         </div>
-        <div class="product.info">
+        <div class="product-info">
+            <h3 class="title">{{ product.title }}</h3>
+            <p class="price subtitle">
+                <span class="currency">$</span>
+                <span class="amount">{{ product.price }}</span>
+            </p>
+            <p>{{ product.description }}</p>
 
         </div>
     </div>
+    <div v-else class="section">
+        <h2 class="title">Product not found</h2>
+    </div>
 </template>
+
 <style scoped>
-    .products {
+    .section {
         display: flex;
-        flex-wrap: wrap;
-        background-color: blue;
+        background-color: aliceblue;
     }
-    .product{
-        flex-basis: 10px;
-        margin: 1em;
-        border: 1px solid black;
-        border-radius: 
-
+    .product-info {
+        padding: 1em;;
     }
-
 </style>

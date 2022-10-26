@@ -4,9 +4,9 @@ export function getProducts() {
 }
 
 export function getProduct(id: number){
-    return data.products.find(product) =>  product.id== id;
+    return data.products.find((product) =>  product.id === id);
 }
 
 export function deleteProduct(id: number){
-    data.product = data.products.filter(product) =>  product.id== id;
+    data.product = data.products.filter((product) =>  product.id !== id);
 }
