@@ -1,24 +1,24 @@
-import data from '../data/products.json';
+import myFetch from "@/services/myFetch";
 
 export function getProducts() {
-  return data.products as Product[];
+  return myFetch<ListEnvelope<Product>>('products');
 }
 
 export function getProduct(id: number) {
-  return getProducts().find( (product) => product.id === id );
+  return myFetch<Product>(`products/${id}`);
 }
 
 export function deleteProduct(id: number) {
   data.products = data.products.filter( (product) => product.id !== id );
 }
 
-export interface ProductDocument {
-    products: Product[]
-    total: number
-    skip: number
-    limit: number
-  }
-  
+export interface ListEnvelope<T> {
+  products: T[]
+  total: number
+  skip: number
+  limit: number
+} 
+
   export interface Product {
     id: number
     title: string

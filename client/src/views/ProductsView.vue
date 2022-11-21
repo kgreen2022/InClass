@@ -1,10 +1,18 @@
 <script setup lang="ts">
     import { addProductToCart } from "@/stores/cart";
-import { computed, reactive, ref, watch } from "vue";
+    import { computed, reactive, ref, watch } from "vue";
     import { RouterLink } from "vue-router";
     import { getProducts, type Product } from "../stores/products";
-    const products = reactive(getProducts());
+    
+
+    //const products = ref([] as Product[]);
+    // getProducts().then( x=> products.value = x);
+
+    const products = reactive([] as Product[]);
+    getProducts().then( x=> products.push(...x.products));
+
     const search = ref("");
+    
     function addToCart(product: Product) {
         addProductToCart(product);
     }
