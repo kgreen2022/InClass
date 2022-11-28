@@ -49,7 +49,7 @@ const update = (userId, productId, quantity) => {
   }else {
         throw new Error('Cart item not found');
     }
-  return index;
+  return { ...list[index], product: getProduct(productId) };
 }
 
 module.exports = { add, get, update }
